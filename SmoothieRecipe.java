@@ -23,7 +23,7 @@ List<Fruit> ingredients = new ArrayList<>();
 //Print current recipes from csv file	
 	public void printRecipes() throws FileNotFoundException
 	{
-		Scanner recipe = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/recipes.csv"));
+		Scanner recipe = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/src/SmoothieShoppe/csv/recipes.csv"));
 	    recipe.useDelimiter(",");
 	    while(recipe.hasNext())
 	    {
@@ -34,7 +34,7 @@ List<Fruit> ingredients = new ArrayList<>();
 //Prints ingredients from csv file
 	public void printIngredients() throws FileNotFoundException
 	{
-		Scanner ingredients = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/ingredients.csv"));
+		Scanner ingredients = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/src/SmoothieShoppe/csv/ingredients.csv"));
 	    ingredients.useDelimiter(",");
 	    while(ingredients.hasNext())
 	    {
@@ -42,115 +42,16 @@ List<Fruit> ingredients = new ArrayList<>();
 	    }
 		ingredients.close();	
 	}
-//Select two fruits for smoothie	
-	public void selectIngredients()
+//Prints inventory from csv file
+	public void printInventory() throws FileNotFoundException
 	{
-		Scanner in = new Scanner(System.in);	
-		System.out.println("Choose a fruit to add to your smoothie: Apple, Orange, or Peach.");
-		System.out.print(">");
-		String s = in.next();
-		int apple=0;
-		int orange=0;
-		int peach=0;
-		int numOfIngredients=0;
-		
-		while(numOfIngredients<=1)
-		{	//Apple
-			if(s.equals("Apple") && apple==0 && numOfIngredients==0 || s.equals("apple") && apple==0 && numOfIngredients==0)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added an apple to the smoothie.");
-				ingredients.add(new Apple());
-				apple=1;
-				System.out.println("");
-				System.out.println("Choose a fruit to add to your smoothie: Orange, or Peach.");
-				System.out.print(">");
-				s = in.next();		
-			}
-			else if(s.equals("Apple") && apple==0 && numOfIngredients==1 || s.equals("apple") && apple==0 && numOfIngredients==1)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added an apple to the smoothie.");
-				ingredients.add(new Apple());
-				apple=1;
-				System.out.println("");	
-			}
-			else if(s.equals("Apple") && apple==1 || s.equals("apple") && apple==1)
-			{	
-				System.out.println("");				
-				System.out.println("You've already used an apple in this smoothie. Choose another fruit to add: Orange or Peach");	
-				System.out.println("");
-				System.out.print(">");
-				s = in.next();		
-			}
-			
-			//Orange
-			else if(s.equals("Orange") && orange==0 && numOfIngredients==0 || s.equals("orange") && orange==0 && numOfIngredients==0)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added an orange to the smoothie.");
-				ingredients.add(new Orange());
-				System.out.println("");
-				orange=1;
-				System.out.println("Choose another fruit to add to the smoothie: Apple or Peach");	
-				System.out.print(">");
-				s = in.next();				
-			}			
-			else if(s.equals("Orange") && orange==0 && numOfIngredients==1 || s.equals("orange") && orange==0 && numOfIngredients==1)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added an orange to the smoothie.");
-				ingredients.add(new Orange());
-				orange=1;			
-				System.out.println("");
-			}
-			else if (s.equals("Orange") && orange==1 || s.equals("orange") && orange==1)
-			{
-				System.out.println("");				
-				System.out.println("You've already used an orange in your smoothie. Choose another fruit to add: Apple or Peach");	
-				System.out.println("");
-				System.out.print(">");
-				s = in.next();			
-			}
-			//Peach
-			else if(s.equals("Peach") && peach==0 && numOfIngredients==0 || s.equals("peach") && peach==0 && numOfIngredients==0)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added a peach to the smoothie.");
-				ingredients.add(new Peach());
-				peach=1;
-				System.out.println("");
-				System.out.println("Choose another fruit to add to the smoothie: Apple or Orange");	
-				System.out.print(">");
-				s = in.next();				
-			}	
-			else if(s.equals("Peach") && peach==0 && numOfIngredients==1 || s.equals("peach") && peach==0 && numOfIngredients==1)
-			{
-				numOfIngredients+= numOfIngredients+1;
-				System.out.println("You added a peach to the smoothie.");
-				ingredients.add(new Peach());
-				peach=1;
-				System.out.println("");				
-			}				
-			else if (s.equals("Peach") && peach==1 || s.equals("peach") && peach==1)
-			{
-				System.out.println("");
-				System.out.println("You've already used a peach in your smoothie. Choose another fruit to add: Apple or Orange");			
-				System.out.println("");
-				System.out.print(">");
-				s = in.next();
-			}
-			//Anything else
-			else if (s != "Apple" || s!="apple" || s != "Peach" || s!="peach" || s != "Orange" || s!="orange")
-			{
-				System.out.println("");
-				System.out.println("Invalid. Please try again.");
-				System.out.println("Choose a fruit to add to your smoothie: Apple, Orange, or Peach.");
-				System.out.print(">");
-				s = in.next();
-			}
-		}
-		in.close();	
+		Scanner inva = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/src/SmoothieShoppe/csv/inventorya.csv"));
+	    inva.useDelimiter(",");
+	    while(inva.hasNext())
+	    {
+	        System.out.print(inva.next()+" ");
+	    }
+		inva.close();		
 	}
 //Create smoothies from recipe
 	public void Smoothie1()

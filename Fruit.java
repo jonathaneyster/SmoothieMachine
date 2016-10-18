@@ -17,7 +17,7 @@ public class Fruit implements Peelable, Pitable
 		this.origin = origin;
 		this.cost = cost;
 	}
-	//Ignore
+	
 	public void peel()
 	{
 		if (this.name == "Apple")
@@ -34,7 +34,7 @@ public class Fruit implements Peelable, Pitable
 		}
 
 	}
-	//Ignore
+	
 	public void pit()
 	{
 		if (this.name == "Apple")
