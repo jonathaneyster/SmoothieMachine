@@ -2,6 +2,7 @@ package smoothieShoppe;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -29,6 +30,17 @@ List<Fruit> ingredients = new ArrayList<>();
 	        System.out.print(recipe.next()+" ");
 	    }
 		recipe.close();
+	}
+//Prints ingredients from csv file
+	public void printIngredients() throws FileNotFoundException
+	{
+		Scanner ingredients = new Scanner(new File("/Users/jonathaneyster/Documents/workspace/ElevenFiftyIntro/ingredients.csv"));
+	    ingredients.useDelimiter(",");
+	    while(ingredients.hasNext())
+	    {
+	        System.out.print(ingredients.next()+" ");
+	    }
+		ingredients.close();	
 	}
 //Select two fruits for smoothie	
 	public void selectIngredients()
@@ -140,7 +152,25 @@ List<Fruit> ingredients = new ArrayList<>();
 		}
 		in.close();	
 	}
-	//Return two ingredients, name, cost, and sum 		
+//Create smoothies from recipe
+	public void Smoothie1()
+	{
+		ingredients.add(new Apple());
+		ingredients.add(new Orange());
+
+	}
+	public void Smoothie2()
+	{
+		ingredients.add(new Apple());
+		ingredients.add(new Peach());
+
+	}
+	public void Smoothie3()
+	{
+		ingredients.add(new Orange());
+		ingredients.add(new Peach());
+	}
+//Return two ingredients, name, cost, and sum 		
 		public void showRecipe()
 		{
 			System.out.println("------------------------------------------------------------------------------");
